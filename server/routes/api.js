@@ -8,9 +8,19 @@ router.get('/', (req, res, next) => {
   console.log("GETTING ALL===========");
   knex('posts')
   .then(posts => {
-    console.log("THIS IS THE POST OBJECT", posts);
     res.json(posts)
   })
 });
+
+router.post(`/`, (req, res, next) => {
+    console.log(`POSTING===============`);
+    knex(`posts`)
+        .insert(req.body)
+        .returning(`*`)
+        .then(function(newPost) {
+            console.log(newPost);
+            res.json(newPost)
+        })
+})
 
 module.exports = router;

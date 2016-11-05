@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('author').notNullable().defaultTo('')
     table.string('image')
     table.string('description').notNullable().defaultTo('')
+    table.integer('votes').defaultTo(0)
     table.timestamps(true, true)
   })
 };
