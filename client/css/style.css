@@ -1,0 +1,28 @@
+.dropdown {
+  padding-top: 2%;
+  color: #337AB7
+}
+
+div.media.well {
+  background-color: #F6F3FD
+}
+
+.positive {
+    color: #369EAB;
+}
+
+.neutral {
+    color: #B89757;
+}
+
+.negative {
+    color: #962521;
+}
+
+.ng-enter {
+  animation: fadeInRight .6s;
+}
+
+.ng-leave {
+  animation: fadeOutRight .6s;
+}

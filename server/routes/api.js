@@ -3,6 +3,7 @@
 var express = require('express');
 var router = express.Router();
 var knex = require(`../db/knex`);
+var bcrypt = require('bcrypt')
 
 router.get('/', (req, res, next) => {
   knex('posts')
@@ -49,5 +50,45 @@ router.delete(`/:id`, function(req, res, next) {
             res.json('post deleted')
         })
 })
+router.post('/signup', function(req, res, next) {
+  knex('users').where('username', req.body.username).then(function(results) {
+    if (results.length >= 1) {
+      console.log('User already exists!');
+    } else {
+      let hash = bcrypt.hashSync(req.body.password, 12)
+      knex('users')
+      .returning('*')
+      .insert({
+        username: req.body.username,
+        hashed_pw: hash
+      }).then(function(results){
+        let userSesh = results[0]
+        delete userSesh.hashed_pw
+        req.session.userInfo = userSesh
+        res.send('User signed up!')
+      })
+    }
+  })
+})
+
+router.post('/login', function(req, res, next){
+  knex('users').where('username', req.body.username)
+  .then(function(results){
+    if (results.length < 1){
+      console.log('Not authorized');
+    } else {
+      let isValid = bcrypt.compareSync(req.body.password, results[0].hashed_pw)
+      if (isValid){
+        let userSesh = results[0]
+        delete userSesh.hashed_pw
+        req.session.userInfo = userSesh
+        res.send('User logged in!')
+      } else {
+        console.log('wrong password');
+      }
+    }
+  })
+})
+
 
 module.exports = router;

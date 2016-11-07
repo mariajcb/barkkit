@@ -26,6 +26,10 @@ app.use(cookieSession({
 
 app.use('/api/posts', api);
 
+app.all('*', (req,res,next) => {
+  res.sendFile('index.html', { root: __dirname + '/client/'})
+})
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
