@@ -1,15 +1,26 @@
-app.service('AuthService', ['$http', 'location', function($http, $location) {
-    console.log(`AUTHSERVICE IS FIRING`);
+// app.factory(`AuthService`, [`$http`, function ($http) {
+//   return {
+//     login: function(returningUser) {
+//       return $http.post('/login', returningUser)
+//     }
+//   }
+// }])
+
+
+app.service("AuthService", function($resource) {
+  console.log(`AUTH SERVICE IS FIRING`);
     return {
-        signup: function(userObj) {
-            return $http.post('/api/signup', userObj).then(function(response) {
-                $location.path('/')
-            })
-        },
-        login: function(userObj) {
-            return $http.post('/api/login', userObj).then(function(response) {
-                $location.path('/')
-            })
+      signup: $resource('signup/:id', {id: '@id'}, {
+        'save':  {
+          method:'POST',
+          isArray: true
         }
-    }
-}])
+      }),
+      login: $resource('login/:id', {id: '@id'}, {
+        'save': {
+          method: 'POST',
+          isArray: false
+        }
+      })
+  }
+})

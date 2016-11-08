@@ -4,7 +4,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var cookieSession = require('cookie-session');
 
-var api = require('./routes/api');
+var posts = require('./routes/posts');
+var login = require('./routes/login');
+var signup = require('./routes/signup');
 
 var app = express();
 
@@ -18,17 +20,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
-app.use(cookieSession({
-  name: 'barkkitSession',
-  secret: 'doesntmatter',
-  httpOnly: false
-}));
 
-app.use('/api/posts', api);
-
-app.all('*', (req,res,next) => {
-  res.sendFile('index.html', { root: __dirname + '/client/'})
-})
+app.use('/posts', posts);
+app.use('/login', login);
+app.use('/signup', signup);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
