@@ -1,6 +1,3 @@
-<<<<<<< HEAD:server/migrations/20161105131834_posts.js
-=======
-
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('posts', (table) => {
     table.increments()
@@ -17,4 +14,3 @@ exports.up = function(knex, Promise) {
 exports.down = function(knex, Promise) {
     return knex.schema.dropTable('posts')
 };
->>>>>>> loginsignup:server/migrations/20161105131834_2_posts.js
