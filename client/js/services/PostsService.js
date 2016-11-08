@@ -1,0 +1,20 @@
+app.factory(`PostsService`, [`$http`, function ($http) {
+  return {
+    allPosts: function() {
+      return $http.get(`/posts`)
+    },
+    createPost: function(newPost) {
+      return $http.post(`/posts`, newPost)
+    },
+    onePost: function(id) {
+      return $http.get(`/posts/${id}`)
+    },
+    putOnePost: function(editedPost) {
+      let id = editedPost.id
+      return $http.put(`/posts/${id}`, editedPost)
+    },
+    deleteOnePost: function(id) {
+      return $http.delete(`/posts/${id}`)
+    }
+  }
+}])
