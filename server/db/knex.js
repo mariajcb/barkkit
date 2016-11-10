@@ -1,4 +1,6 @@
-require(`dotenv`).load()
+if (process.env.NODE_ENV != `production`) {
+  require(`dotenv`).load()
+}
 
 var environment = process.env.NODE_ENV || `development`
 var config = require(`../knexfile.js`)[environment]

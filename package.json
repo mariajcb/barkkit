@@ -4,8 +4,7 @@
     "private": true,
     "scripts": {
         "start": "node ./server/bin/www",
-        "knex": "knex",
-        "heroku-postbuild": "knex migrate:latest"
+        "knex": "knex"
     },
     "dependencies": {
         "bcrypt": "^0.8.7",
@@ -17,8 +16,5 @@
         "express": "~4.13.4",
         "knex": "^0.12.6",
         "pg": "^6.1.0"
-    },
-    "engines": {
-        "node": "v6.3.1"
     }
 }
