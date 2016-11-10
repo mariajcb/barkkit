@@ -1,22 +1,22 @@
-<div class=`container-fluid`>
+<div class='container-fluid'>
 
-<form name=`signUp` ng-submit=`submitSignUp(newUser)`>
+<form name='signUp' ng-submit='submitSignUp(newUser)'>
 
-  <div class=`form-group` ng-class=`{`has-error` : signUp.username.$invalid && !signUp.username.$pristine,`has-success` : signUp.username.$valid }`>
-    <label class=`control-label` for=`username`>Username:</label>
-    <input type=`text` name=`username` class=`form-control` ng-model=`newUser.username` ng-minlength=`2` ng-maxlength=`30` ng-required=`true` placeholder=`Username`>
-    <small ng-show=`signUp.username.$error.minlength` class=`help-block`>Username is too short.</small>
-    <small ng-show=`signUp.username.$error.maxlength` class=`help-block`>Username is too long.</small>
+  <div class='form-group' ng-class='{'has-error' : signUp.username.$invalid && !signUp.username.$pristine,'has-success' : signUp.username.$valid }'>
+    <label class='control-label' for='username'>Username:</label>
+    <input type='text' name='username' class='form-control' ng-model='newUser.username' ng-minlength='2' ng-maxlength='30' ng-required='true' placeholder='Username'>
+    <small ng-show='signUp.username.$error.minlength' class='help-block'>Username is too short.</small>
+    <small ng-show='signUp.username.$error.maxlength' class='help-block'>Username is too long.</small>
   </div>
-  <div class=`form-group` ng-class=`{`has-error` : signUp.password.$invalid && !signUp.password.$pristine,`has-success` : signUp.password.$valid }`>
-    <label class=`control-label` for=`password`>Password:</label>
-    <input type=`password` name=`password` class=`form-control` ng-model=`newUser.password` ng-minlength=`2` ng-maxlength=`100` ng-required=`true` placeholder=`Password`>
-    <small ng-show=`signUp.password.$error.minlength` class=`help-block`>Password is too short.</small>
-    <small ng-show=`signUp.password.$error.maxlength` class=`help-block`>Password is too long.</small>
+  <div class='form-group' ng-class='{'has-error' : signUp.password.$invalid && !signUp.password.$pristine,'has-success' : signUp.password.$valid }'>
+    <label class='control-label' for='password'>Password:</label>
+    <input type='password' name='password' class='form-control' ng-model='newUser.password' ng-minlength='2' ng-maxlength='100' ng-required='true' placeholder='Password'>
+    <small ng-show='signUp.password.$error.minlength' class='help-block'>Password is too short.</small>
+    <small ng-show='signUp.password.$error.maxlength' class='help-block'>Password is too long.</small>
   </div>
   <div>
-    <input hidden ng-model=`comment.posts_id` value=`{{post.id}}`>
+    <input hidden ng-model='comment.posts_id' value='{{post.id}}'>
   </div>
-  <button type=`submit` class=`btn btn-default` ng-disabled=`signUp.$invalid`>Submit</button>
+  <button type='submit' class='btn btn-default' ng-disabled='signUp.$invalid'>Submit</button>
 </form>
 </div>
