@@ -5,7 +5,6 @@ var router = express.Router();
 var knex = require(`../db/knex`);
 
 router.get(`/`, (req, res, next) => {
-    console.log(`GET ROUTE IS FIRING`);
     knex(`posts`)
         .then(posts => {
             knex(`comments`)
@@ -22,7 +21,6 @@ router.get(`/`, (req, res, next) => {
 });
 
 router.get(`/:id`, function(req, res, next) {
-    console.log(`WENT TO THE POSTS ID ROUTE`);
     knex(`posts`)
         .where(`id`, req.params.id)
         .first()
@@ -50,7 +48,6 @@ router.post(`/addcomment`, (req, res, next) => {
 })
 
 router.put(`/:id`, function(req, res, next) {
-  console.log(`EDITING=======`);
     knex(`posts`)
         .where(`id`, req.params.id)
         .first()
@@ -76,7 +73,6 @@ router.delete(`/:id`, function(req, res, next) {
 })
 
 router.delete(`/deletecomment/:id`, function(req, res, next) {
-    console.log(`DELETE COMMENT ROUTE IS FIRING, commentID:`, req.params.id);
     knex(`comments`)
         .where(`id`, req.params.id)
         .first()

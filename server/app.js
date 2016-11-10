@@ -10,15 +10,6 @@ var signup = require(`./routes/signup`);
 
 var app = express();
 
-// const port = process.env.PORT || 8000;
-//
-// app.listen(port, () => {
-//     if (app.get('env') !== 'development') {
-//         // eslint-disable-next-line no-console
-//         console.log('Listening on port', port);
-//     }
-// });
-
 // view engine setup
 // app.set(`views`, path.join(__dirname, `views`));
 // app.set(`view engine`, `jade`);

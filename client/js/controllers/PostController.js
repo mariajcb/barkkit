@@ -16,7 +16,6 @@ app.controller(`PostController`, [`$scope`, `PostsService`, `$routeParams`, `$lo
             const editedPost = $scope.post
             PostsService.putOnePost(editedPost)
                 .then(function() {
-                    console.log(`this is edited post`, editedPost)
                     $location.url(`/`)
                 })
         } else {
