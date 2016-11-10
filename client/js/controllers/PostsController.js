@@ -1,8 +1,8 @@
-`use strict`
+'use strict'
 
-app.controller(`PostsController`, [`$scope`, `PostsService`, `$cookies`, `$location`, function($scope, PostsService, $cookies, $location) {
+app.controller('PostsController', ['$scope', 'PostsService', '$cookies', '$location', function($scope, PostsService, $cookies, $location) {
 
-    const cookie = $cookies.getObject(`loggedIn`)
+    const cookie = $cookies.getObject('loggedIn')
 
     $scope.view = {}
 
@@ -21,7 +21,7 @@ app.controller(`PostsController`, [`$scope`, `PostsService`, `$cookies`, `$locat
                     $scope.newPostForm.$setPristine()
                 })
         } else {
-            $scope.error = `You must be logged in to create a new post.`
+            $scope.error = 'You must be logged in to create a new post.'
         }
     }
 
@@ -37,7 +37,7 @@ app.controller(`PostsController`, [`$scope`, `PostsService`, `$cookies`, `$locat
                     $scope.newComment = {}
                 })
         } else {
-            $scope.error = `You must be logged in to create a new comment.`
+            $scope.error = 'You must be logged in to create a new comment.'
         }
     }
 
@@ -45,7 +45,7 @@ app.controller(`PostsController`, [`$scope`, `PostsService`, `$cookies`, `$locat
         const id = comment.id
         PostsService.deleteComment(comment)
             .then(function() {
-                $location.url(`/`)
+                $location.url('/')
             })
     }
 
@@ -70,11 +70,11 @@ app.controller(`PostsController`, [`$scope`, `PostsService`, `$cookies`, `$locat
 
     $scope.votes = function(post) {
         if (post.votes > 0) {
-            return `positive`;
+            return 'positive';
         } else if (post.votes < 0) {
-            return `negative`;
+            return 'negative';
         } else {
-            return `neutral`;
+            return 'neutral';
         }
     }
 

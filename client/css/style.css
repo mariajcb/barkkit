@@ -26,3 +26,8 @@ div.media.well {
 .ng-leave {
   animation: fadeOutRight .6s;
 }
+
+.error {
+  color: #962521;
+  font-weight: bold;
+}

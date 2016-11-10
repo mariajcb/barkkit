@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="navContainer container-fluid">
-        <a class="navbar-brand" href="#/">Who`s a good dog?</a>
+        <a class="navbar-brand" href="#/">Who's a good dog?</a>
 
         <ul class="nav navbar-nav">
             <!-- new posts -->
@@ -33,10 +33,9 @@
     </div>
 </nav>
 
+<div class="container-fluid">
 <h1>Edit Your Post</h1>
-
 <p class="error">{{error}}</p>
-
 <div class="media well">
     <div class="media-left media-middle">
         <a href="#">
@@ -59,27 +58,27 @@
 
     <form ng-show="showEditForm" name="editPost" ng-submit="submitEditPost(editPost.$valid)">
 
-        <div class="form-group" ng-class="{`has-error` : post.title.$invalid && !post.title.$pristine,`has-success` : post.title.$valid }">
+        <div class="form-group" ng-class="{'has-error' : post.title.$invalid && !post.title.$pristine,'has-success' : post.title.$valid }">
             <label class="control-label" for="title">Title:</label>
             <input type="text" name="title" class="form-control" value="{{post.title}}" ng-model="post.title" ng-minlength="2" ng-maxlength="30" ng-required="true">
             <small ng-show="post.title.$error.minlength" class="help-block">Title is too short.</small>
             <small ng-show="post.title.$error.maxlength" class="help-block">Title is too long.</small>
         </div>
 
-        <div class="form-group" ng-class="{`has-error` : post.author.$invalid && !post.author.$pristine,`has-success` : post.author.$valid }">
+        <div class="form-group" ng-class="{'has-error' : post.author.$invalid && !post.author.$pristine,'has-success' : post.author.$valid }">
             <label class="control-label" for="author">Author:</label>
             <input type="text" name="author" class="form-control" value="{{post.author}}" ng-model="post.author" ng-minlength="2" ng-maxlength="18" ng-required="true">
-            <small ng-show="post.author.$error.minlength" class="help-block">Author`s name is too short.</small>
-            <small ng-show="post.author.$error.maxlength" class="help-block">Author`s name is too long.</small>
+            <small ng-show="post.author.$error.minlength" class="help-block">Author's name is too short.</small>
+            <small ng-show="post.author.$error.maxlength" class="help-block">Author's name is too long.</small>
         </div>
 
-        <div class="form-group" ng-class="{`has-error` : post.image.$invalid && !post.image.$pristine,`has-success` : post.image.$valid }">
+        <div class="form-group" ng-class="{'has-error' : post.image.$invalid && !post.image.$pristine,'has-success' : post.image.$valid }">
             <label class="control-label" for="image">Image URL:</label>
             <input type="url" name="image" class="form-control" value="{{post.image}}" ng-model="post.image" ng-required="true">
             <small ng-show="post.image.$invalid && !post.image.$pristine" class="help-block">URL is invalid.</small>
         </div>
 
-        <div class="form-group" ng-class="{`has-error` : post.description.$invalid && !post.description.$pristine,`has-success` : post.description.$valid }">
+        <div class="form-group" ng-class="{'has-error' : post.description.$invalid && !post.description.$pristine,'has-success' : post.description.$valid }">
             <label class="control-label" for="description">Description:</label>
             <input type="text" name="description" value="{{post.description}}" class="form-control" ng-model="post.description" ng-minlength="10" ng-maxlength="2000" ng-required="true">
             <small ng-show="post.description.$error.minlength" class="help-block">Description should be at least 10 characters.</small>
@@ -88,3 +87,4 @@
 
         <button type="submit" class="btn btn-default" ng-disabled="editPostForm.$invalid" ng-click="showEditForm=false">Submit</button>
     </form>
+</div>

@@ -17,13 +17,13 @@ app.config(function($routeProvider) {
             templateUrl: `./views/posts.html`,
             controller: `PostsController`
         })
+        .when(`/logout`, {
+          templateUrl: `./views/logout.html`,
+          controller: `LogOutController`
+        })
         .when(`/login`, {
             templateUrl: `./views/login.html`,
             controller: `AuthController`
-        })
-        .when(`/logout`, {
-            templateUrl: `./views/logout.html`,
-            controller: `LogOutController`
         })
         .when(`/signup`, {
           templateUrl: `./views/signup.html`,

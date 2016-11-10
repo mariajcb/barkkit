@@ -54,7 +54,11 @@ router.put(`/:id`, function(req, res, next) {
     knex(`posts`)
         .where(`id`, req.params.id)
         .first()
-        .update(req.body)
+        .update({
+            title: req.body.title,
+            author: req.body.author,
+            post: req.body.post,
+            votes: req.body.votes})
         .then(function(post) {
             res.json(`post updated`)
         })

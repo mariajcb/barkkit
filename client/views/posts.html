@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="navContainer container-fluid">
-        <a class="navbar-brand" href="#/">Who`s a good dog?</a>
+        <a class="navbar-brand" href="#/">Who's a good dog?</a>
 
         <ul class="nav navbar-nav">
             <!-- new posts -->
@@ -33,29 +33,31 @@
     </div>
 </nav>
 
+<div class="container-fluid">
+<p class="error">{{error}}</p>
 <form ng-show="showPostForm" name="newPostForm" ng-submit="submitPost(newPostForm.$valid)">
 
-    <div class="form-group" ng-class="{`has-error` : newPostForm.title.$invalid && !newPostForm.title.$pristine,`has-success` : newPostForm.title.$valid }">
+    <div class="form-group" ng-class="{'has-error' : newPostForm.title.$invalid && !newPostForm.title.$pristine,'has-success' : newPostForm.title.$valid }">
         <label class="control-label" for="title">Title:</label>
         <input type="text" name="title" class="form-control" ng-model="post.data.title" ng-minlength="2" ng-maxlength="30" ng-required="true" placeholder="Title">
         <small ng-show="newPostForm.title.$error.minlength" class="help-block">Title is too short.</small>
         <small ng-show="newPostForm.title.$error.maxlength" class="help-block">Title is too long.</small>
     </div>
 
-    <div class="form-group" ng-class="{`has-error` : newPostForm.author.$invalid && !newPostForm.author.$pristine,`has-success` : newPostForm.author.$valid }">
+    <div class="form-group" ng-class="{'has-error' : newPostForm.author.$invalid && !newPostForm.author.$pristine,'has-success' : newPostForm.author.$valid }">
         <label class="control-label" for="author">Author:</label>
         <input type="text" name="author" class="form-control" ng-model="post.data.author" ng-minlength="2" ng-maxlength="18" ng-required="true" placeholder="Author">
-        <small ng-show="newPostForm.author.$error.minlength" class="help-block">Author`s name is too short.</small>
-        <small ng-show="newPostForm.author.$error.maxlength" class="help-block">Author`s name is too long.</small>
+        <small ng-show="newPostForm.author.$error.minlength" class="help-block">Author's name is too short.</small>
+        <small ng-show="newPostForm.author.$error.maxlength" class="help-block">Author's name is too long.</small>
     </div>
 
-    <div class="form-group" ng-class="{`has-error` : newPostForm.image.$invalid && !newPostForm.image.$pristine,`has-success` : newPostForm.imgURL.$valid }">
+    <div class="form-group" ng-class="{'has-error' : newPostForm.image.$invalid && !newPostForm.image.$pristine,'has-success' : newPostForm.imgURL.$valid }">
         <label class="control-label" for="image">Image URL:</label>
         <input type="url" name="image" class="form-control" ng-model="post.data.image" ng-required="true" placeholder="Image URL">
         <small ng-show="newPostForm.image.$invalid && !newPostForm.image.$pristine" class="help-block">URL is invalid.</small>
     </div>
 
-    <div class="form-group" ng-class="{`has-error` : newPostForm.description.$invalid && !newPostForm.description.$pristine,`has-success` : newPostForm.description.$valid }">
+    <div class="form-group" ng-class="{'has-error' : newPostForm.description.$invalid && !newPostForm.description.$pristine,'has-success' : newPostForm.description.$valid }">
         <label class="control-label" for="description">Description:</label>
         <input type="text" name="description" class="form-control" ng-model="post.data.description" ng-minlength="10" ng-maxlength="2000" ng-required="true" placeholder="Description">
         <small ng-show="newPostForm.description.$error.minlength" class="help-block">Description should be at least 10 characters.</small>
@@ -73,7 +75,9 @@
         </a>
     </div>
     <div class="media-body">
+        <a href="#/{{post.id}}">
         <h4 class="media-heading">{{post.title}}
+        </a>
     <a class="glyphicon glyphicon-arrow-up" aria-hidden="true" ng-click="plusOne(post)"></a>
     <a class="glyphicon glyphicon-arrow-down" aria-hidden="true" ng-click="minusOne(post)"></a>
     <span ng-class="votes(post)"> {{post.votes}} </span>
@@ -84,7 +88,7 @@
         <!-- comments -->
         <button type="button" class="btn btn-default" ng-click="showComments = !showComments">
         <span class="glyphicon glyphicon-comment"></span>
-        <ng-pluralize count="post.comments.length" when="{`0`: `No barks`, `one`: `1 bark`, `other`: `{{post.comments.length}} barks`}" </ng-pluralize>
+        <ng-pluralize count="post.comments.length" when="{'0': 'No barks', 'one': '1 bark', 'other': '{{post.comments.length}} barks'}" </ng-pluralize>
         </button>
 
         <!-- display comments -->
@@ -111,3 +115,4 @@
             </form>
         </div>
     </div>
+</div>
