@@ -3,8 +3,8 @@ module.exports = {
     client: `pg`,
     connection: `postgres://localhost/barkkit_dev`
   },
-  // production: {
-  //   client: `pg`,
-  //   connection: `process.env.postgresql-shallow-29454`
-  // }
+  production: {
+    client: `pg`,
+    connection: `process.env.DATABASE_URL`
+  }
 };
