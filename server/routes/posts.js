@@ -1,14 +1,14 @@
-'use strict'
+`use strict`
 
-var express = require('express');
+var express = require(`express`);
 var router = express.Router();
 var knex = require(`../db/knex`);
 
-router.get('/', (req, res, next) => {
+router.get(`/`, (req, res, next) => {
     console.log(`GET ROUTE IS FIRING`);
-    knex('posts')
+    knex(`posts`)
         .then(posts => {
-            knex('comments')
+            knex(`comments`)
                 .then(comments => {
                     posts.forEach(post => {
                         post.comments = []
@@ -56,7 +56,7 @@ router.put(`/:id`, function(req, res, next) {
         .first()
         .update(req.body)
         .then(function(post) {
-            res.json('post updated')
+            res.json(`post updated`)
         })
 })
 
@@ -67,7 +67,7 @@ router.delete(`/:id`, function(req, res, next) {
         .first()
         .del()
         .then(function() {
-            res.json('post deleted')
+            res.json(`post deleted`)
         })
 })
 
@@ -78,7 +78,7 @@ router.delete(`/deletecomment/:id`, function(req, res, next) {
         .first()
         .del()
         .then(function() {
-            res.json('post deleted')
+            res.json(`post deleted`)
         })
 })
 

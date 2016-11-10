@@ -1,13 +1,13 @@
-'use strict'
+`use strict`
 
-var express = require('express');
+var express = require(`express`);
 var router = express.Router();
 var knex = require(`../db/knex`);
-var bcrypt = require('bcrypt')
+var bcrypt = require(`bcrypt`)
 
-router.post('/', function(req, res, next) {
-    knex('users')
-        .where('username', req.body.username)
+router.post(`/`, function(req, res, next) {
+    knex(`users`)
+        .where(`username`, req.body.username)
         .first()
         .then(function(user) {
             if (user) {
@@ -16,13 +16,13 @@ router.post('/', function(req, res, next) {
                     res.json(user)
                 } else {
                     const error = {
-                        message: 'Incorrect username or password'
+                        message: `Incorrect username or password`
                     }
                     res.json(error)
                 }
             } else {
                 const error = {
-                    message: 'Username does not exist'
+                    message: `Username does not exist`
                 }
                 res.json(error)
             }
