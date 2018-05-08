@@ -30,7 +30,7 @@ exports.seed = function(knex, Promise) {
                     users_id: 3,
                     title: `asdfkj;l`,
                     author: `Dogshamers Anonymous`,
-                    image: `https://dl.dropboxusercontent.com/u/60720250/dogshaming.png`,
+                    image: `https://www.dropbox.com/s/sy0zvcartf7knjf/dogshaming.png?dl=0`,
                     description: `Get a load of that dog!`,
                     votes: 4
                 }),

@@ -12,16 +12,16 @@ app.controller(`PostController`, [`$scope`, `PostsService`, `$routeParams`, `$lo
         })
 
     $scope.submitEditPost = function(post) {
-        if (cookie.id == $scope.post.users_id) {
+        if (cookie && cookie.id == $scope.post.users_id) {
             const editedPost = $scope.post
             PostsService.putOnePost(editedPost)
                 .then(function() {
                     $location.url(`/`)
                 })
         } else {
-            $scope.error = `You must be logged in to edit post.`
+            $scope.error = `You must be logged in to edit post.`//change this message
         }
-    }
+    } 
 
     $scope.deletePost = function(post) {
         // if (cookie.id == post.users_id) {
